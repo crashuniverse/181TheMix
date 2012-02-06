@@ -4,11 +4,10 @@
         <link rel="stylesheet type="text/css" href="style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-        function geturlx()
+        function scrobble()
         {
             trackNumber = "";
             duration = "";
-            
             params = "";
             params += "submissionType=track";
             params += "&username=" + encodeURIComponent(document.getElementById("username").value);
@@ -19,10 +18,10 @@
             params += "&number=" + trackNumber;
             params += "&duration=" + duration;
             $.ajax({
-            url: "http://universalscrobbler.invitationstation.org/scrobble.php",
-            dataType: 'json',
-            data: params,
-            success: true
+                url: "http://universalscrobbler.invitationstation.org/scrobble.php",
+                dataType: 'json',
+                data: params,
+                success: true
             });
         }
         </script>
@@ -82,11 +81,10 @@
                 <div id="artist">Sample Artist</div>
                 <div id="seperator">&nbsp;-&nbsp;</div>
                 <div id="trackName">Sample Track</div>
-                <!-- <div id="trackinfomaster">Sample track info</div> -->
             </div>
-            <iframe id="theMixNowPlaying" name="theMixNowPlaying" src="http://localhost/host/181TheMix/fetchCurrentSong.php" width="0" height="0" frameborder=0></iframe>
+            <iframe id="theMixNowPlaying" name="theMixNowPlaying" src="fetchCurrentSong.php" width="0" height="0" frameborder=0></iframe>
             <div id="integrate">
-                <a href="javascript: geturlx()">Scrobble using this</a>
+                <a href="javascript: scrobble();">Scrobble using this</a>
             </div>
         </div>
         <div id="footer">
