@@ -1,0 +1,141 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: #747381;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+#header{
+    height: 168px;
+    border-bottom: solid 2px #999;
+}
+
+#radio181fm{
+    width: 300px;
+    float: left;
+}
+
+#lastfm{
+    width: 300px;
+    float: left;
+}
+
+#headerText{
+    float:left;
+    font-size: 24px;
+    color: #ffffff;
+    padding-top: 70px;
+}
+#content{
+    clear: both;
+    color: #ffffff;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+#trackinfobox{
+    margin-bottom:40px;
+}
+
+#nowPlayingTrack{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#artist, #trackName, #seperator{
+    float: left;
+}
+
+#setLoginWrapper{
+    padding-top: 20px;
+}
+
+#setLogin{
+    float: left;
+    width: 55px;
+    height: 16px;
+    background: #333333;
+    padding: 4px 3px 3px 3px;
+    border: none;
+    color: #ffffff;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-appearance: none;
+}
+
+#setLogin:hover{
+    cursor: pointer;
+    background: #000000;
+}
+
+#integrate{
+    clear: both;
+}
+
+#integrate a, #integrate a:visited, #integrate a:active, #integrate a:hover{
+    color: #ffffff;
+}
+
+#login{
+    width: 410px;
+    text-align: left;
+    margin: -150px 10px 0 0;
+    float: right;
+    #display: none;
+}
+
+#login label{
+    color: #ffffff;
+    font-size: 12px;
+    display: block;
+}
+
+.loginsection{
+    width: 160px;
+    float: left;
+}
+
+.loginsectionhor{
+    width: 100%;
+    margin-bottom: 5px;
+    
+}
+
+#username, #password{
+    padding: 2px 4px 3px 4px;
+    color: #666666;
+    font-size: 12px;
+    width: 140px;
+}
+
+#signin{
+    margin: -150px 50px 0 0;
+    float: right;
+    color: #ffffff;
+    font-size: 12px;
+    display: none;
+}
+
+#signin label{
+    float: left;
+}
+
+#currentUser{
+    font-weight: bold;
+    float: left;
+    margin-left: 4px;
+}
+
+#logout{
+    margin-left: 5px;
+}
+
+a#logout, a#logout:visited, a#logout:active, a#logout:hover{
+    color: #ffffff;
+}
