@@ -69,14 +69,6 @@ body{
     background: #000000;
 }
 
-#integrate{
-    clear: both;
-}
-
-#integrate a, #integrate a:visited, #integrate a:active, #integrate a:hover{
-    color: #ffffff;
-}
-
 #login{
     width: 410px;
     text-align: left;
@@ -132,4 +124,36 @@ body{
 
 a#logout, a#logout:visited, a#logout:active, a#logout:hover{
     color: #ffffff;
+}
+
+.trackBuff{
+    background-color:#666;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 2px;
+    color: #ffffff;
+    padding: 10px 0px 0px 10px;
+    font-size: 12px;
+    position: relative;
+}
+
+#scrobbleArea {
+    float: right;
+    margin: -100px 50px 0 0;
+}
+
+.artistNameInBuff, .seperatorInBuff, .trackBlockInBuff{
+    float: left;
+}
+
+.seperatorInBuff{
+    margin: 0px 3px 0px 3px;
+}
+
+.makeLink {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
 }

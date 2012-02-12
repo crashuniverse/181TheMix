@@ -1,10 +1,10 @@
 <html>
     <head>
         <title>181.fm The Mix - Scrobble to last.fm account</title>
-        <link rel="stylesheet type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-        function scrobble()
+        function scrobble(artist, track)
         {
             trackNumber = "";
             duration = "";
@@ -12,8 +12,8 @@
             params += "submissionType=track";
             params += "&username=" + encodeURIComponent(document.getElementById("username").value);
             params += "&password=" + encodeURIComponent(document.getElementById("password").value);
-            params += "&artist=" + encodeURIComponent(document.getElementById("artist").innerHTML);
-            params += "&track=" + encodeURIComponent(document.getElementById("trackName").innerHTML);
+            params += "&artist=" + encodeURIComponent(artist);
+            params += "&track=" + encodeURIComponent(track);
             params += "&album=";
             params += "&number=" + trackNumber;
             params += "&duration=" + duration;
@@ -51,6 +51,28 @@
             $("#login").show();
         }
         </script>
+        <script>
+        $(function(){
+            var i = 0;
+            var remove = true;
+            
+            $('#scrobbleBuff').click(function(e) {
+                $('<div/>').attr({
+                    'id' : "track"+i
+                }).addClass('trackBuff')
+                  .appendTo('#scrobbleArea')
+                  .text("hello")
+                i++;
+            });
+                    
+            
+            $('#scrobbleArea').on('click','.trackBuff',function (){
+                if(remove){
+                    $(this).remove();
+                    }
+            });
+        });
+        </script>
     </head>
     <body>
         <div id="header">
@@ -83,11 +105,62 @@
                 <div id="trackName">Sample Track</div>
             </div>
             <iframe id="theMixNowPlaying" name="theMixNowPlaying" src="fetchCurrentSong.php" width="0" height="0" frameborder=0></iframe>
-            <div id="integrate">
-                <a href="javascript: scrobble();">Scrobble using this</a>
-            </div>
         </div>
+        <span id="scrobbleArea"></span>
         <div id="footer">
         </div>
+        <script>
+        setInterval(recordPlaylist,1000);
+        var trackBuffCount = 0;
+        var track = new Array();
+        track[trackBuffCount-1] = document.getElementById('trackName').innerHTML;
+                
+        function recordPlaylist(){
+            // look for change in title track
+            var currentArtist = document.getElementById('artist').innerHTML;
+            var currentTrack = document.getElementById('trackName').innerHTML;
+
+            track[trackBuffCount] = currentTrack;
+            
+            // comparison of current track and prev track
+            if(track[trackBuffCount] != track[trackBuffCount-1]){
+            
+            // if change found, put in scrobble buff
+            $(function(){
+                  $('<div/>').attr({
+                      'id' : "trackInBuff"+ trackBuffCount
+                  }).addClass('trackBuff')
+                    .appendTo('#scrobbleArea')
+                    $('<div/>').attr({
+                                'id' : "artistBlock"+ trackBuffCount
+                              }).addClass('artistNameInBuff')
+                                .appendTo('#trackInBuff' + trackBuffCount)
+                                .text(currentArtist)
+                    $('<div/>').attr({
+                                'id' : "seperatorBlock"+ trackBuffCount
+                              }).addClass('seperatorInBuff')
+                                .appendTo('#trackInBuff' + trackBuffCount)
+                                .text("-")
+                    $('<div/>').attr({
+                                'id' : "trackBlock"+ trackBuffCount
+                              }).addClass('trackBlockInBuff')
+                                .appendTo('#trackInBuff' + trackBuffCount)
+                                .text(currentTrack)
+                     $('<a/>').attr({
+                                'href' : "#"
+                              }).appendTo('#trackInBuff' + trackBuffCount)
+                                .append('<span class="makeLink"></span>')
+                  trackBuffCount++;
+                  });
+             };
+        };
+        
+        // scrobble local track
+        $('#scrobbleArea').on('click','.makeLink',function (){
+                var artist = this.parentNode.parentNode.children[0].innerHTML
+                var track = this.parentNode.parentNode.children[2].innerHTML
+                scrobble(artist, track)
+        });
+        </script>
     </body>
 </html>

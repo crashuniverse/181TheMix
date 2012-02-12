@@ -1,0 +1,10 @@
+CHANGELOG
+
+master
+initial composition
+
+cleanup
+code cleaned up for basic formatting
+
+01intro-playlist
+playlist introduced that stores tracks until scrobbled
