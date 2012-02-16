@@ -135,6 +135,8 @@ a#logout, a#logout:visited, a#logout:active, a#logout:hover{
     padding: 10px 0px 0px 10px;
     font-size: 12px;
     position: relative;
+    border: solid 2px #cccccc;
+    -moz-border-radius: 10px 10px 10px 10px;
 }
 
 #scrobbleArea {
